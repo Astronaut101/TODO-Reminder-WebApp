@@ -246,4 +246,37 @@ A *template* is a file containing HTML markup, with a few additional placeholder
 
 *Note*: We can return to the app's home page from anywhere in the app by clicking on the Django To-do Lists heading
 
-#### [TBC] Add a Home Page Template
+#### Add a Home Page Template
+
+In our new index.html file, we have extended the features from the base template. Except everything between and including the {% block content %} and {% endblock %} tags.
+
+#### Building a Request Handler
+
+The two most common HTTP request verbs are *GET* and *POST*. The action performed by a GET request is mostly defined by its URL, which not only routes the request back to the correct server, but also contains *parameters* that tell the server exactly what information the browser is requesting.
+
+A *POST* request may also have URL parameters, but it behaves a little differently. POST sends some further informationm besides the URL parameters, to the server.
+
+The *URL Dispatcher* does its job by consulting what's known as the URLconf, a set of URL patterns mapped to views. These mappings are conventionally stored in a file named urls.py.
+
+In cooking-up our first home-baked view. The *request-response cycle* proceeds in our ToDo App.
+
+#### Reuse Class-Based Generic Views
+
+*Class-based generic views* take reusability to the next level. It needs to know just two things:
+
+1. What data type it's listing
+2. What template it'll use to render the HTML
+
+#### Subclass ListView to Display a List of To-Do Items
+
+Extending the ListView class with our custom class ListListView and ItemListView.
+
+#### Show the Items in a To-Do List
+
+In adding our url list/<int:list_id>/ means that this entry will match a URL like list/3/ and pass the named parameter list_id=3 to the ItemListView instance. If we revisit the ItemListView code in views.py, we'll notice that it references this parameter in the form self.kwargs["list_id"].
+
+We have implemented just the *Read* part of the *CRUD* operations.
+
+[Documentation of Pipe Filters](https://docs.djangoproject.com/en/3.2/ref/templates/builtins/)
+
+### [TBC] Create and Update Model Objects in Django
